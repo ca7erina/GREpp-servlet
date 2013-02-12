@@ -1,0 +1,176 @@
+@CHARSET "utf-8";
+
+*{
+margin:0px;
+padding:0px;
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;;
+font-size:15px;
+
+}
+
+a,link{
+color:#003366;
+
+}
+content.list{
+list-style-type: square
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family:Verdana,"Times New Roman",Times,serif;
+	font-weight: bold;
+	margin :30px auto;
+	font-size:25px ;
+	text-align:center;
+}
+
+.container{
+	width: 960px;
+	height:480px;
+	
+	margin:0px auto;
+}
+.header{
+	padding-left: 30px;
+	margin-left:80px;
+	
+}
+.sidebar{
+	width:150px;
+	background-color: gray;
+	margin-left:40px;
+	margin-right:10px;
+	margin-bottom:20px;
+	padding:10px;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	float:left;
+	border:#E9609B dotted;
+}
+.sidebar #menuItems{
+	color:#003366;
+	margin:20px;
+	
+}
+
+.context{
+	width:600px;
+	height:510px;
+	color:#003366;
+	background-color:gray;
+	border:#E9609B dotted;
+	margin-right:40px;
+	padding:20px;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	float:right;
+	
+}
+.content{
+	width:960px;
+	height:500px;
+	
+	
+	}
+#cleardiv{
+	clear:both;
+}
+
+#sidebar2{
+	
+	height:350px;
+}
+#sidebar2 #test {
+	
+	color:gray;
+	margin:20px;
+	
+}
+#calender{
+	width:200px;
+	height:200px;
+	background-color:black;
+	margin:5px 20px;
+	padding:5px;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	float: right;
+}
+#diagram{
+	width:550px;
+	height:200px;
+		padding:5px;
+	background-color:gray;
+	margin:35px 20px;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	float: left;
+}
+.dataform{
+	width:450px;
+	color:black;
+	background-color:gray;
+	font-weight:bold;
+	margin:10px auto;
+	padding:0px auto;
+
+}
+
+
+#submit{
+	width:50px;
+	margin:20px auto;
+	padding:0px auto;
+	
+}
+
+#datatable{
+	color:#ffffff;
+
+}
+
+#clock{
+	
+	width: 530px;
+	height:30px;
+	font-size:5px;
+	color: gray;
+	margin: 0px auto;
+	pading:1px auto;
+	background-color:#00000;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+}
+#timer{
+	font-size:12px;
+	color:white;
+}
+
+#title{
+	
+	width: 500px;
+	height:30px;
+	font-size:20px;
+	color: gray;
+	margin: 0px auto;
+	pading:1px auto;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+
+
+
