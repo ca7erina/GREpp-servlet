@@ -8,35 +8,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ArgumentDao;
+import dao.jdbc.JdbcArgumentDao;
+
+import entity.Argument;
+
 public class AddArgument extends HttpServlet {
+	private Argument argument;
+	private ArgumentDao dao= new JdbcArgumentDao();
 
-	/**
-	 * The doGet method of the servlet. <br>
-	 *
-	 * This method is called when a form has its tag value method equals to get.
-	 * 
-	 * @param request the request send by the client to the server
-	 * @param response the response send by the server to the client
-	 * @throws ServletException if an error occurred
-	 * @throws IOException if an error occurred
-	 */
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out
-				.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
+	public void execute() {
+		try {
+			dao.AddArgument(argument);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
+	public Argument getArgument() {
+		return argument;
+	}
+
+	public void setArgument(Argument argument) {
+		this.argument = argument;
+	}
+
+	public ArgumentDao getDao() {
+		return dao;
+	}
+
+	public void setDao(ArgumentDao dao) {
+		this.dao = dao;
+	}
+	
 }

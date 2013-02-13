@@ -4,23 +4,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <servlet>
-    <servlet-name>GeneralTest</servlet-name>
-    <servlet-class>test.GeneralTest</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>AddArgument</servlet-name>
-    <servlet-class>action.AddArgument</servlet-class>
-  </servlet>
+<servlet>
+    <servlet-name>GeneralServlet</servlet-name>
+    <servlet-class>action.GeneralServlet</servlet-class>
+   <init-param>
+   <param-name>suffix</param-name>
+   <param-value>.action</param-value>
+  </init-param>
+</servlet>
 
 
   <servlet-mapping>
-    <servlet-name>GeneralTest</servlet-name>
-    <url-pattern>/test</url-pattern>
+    <servlet-name>GeneralServlet</servlet-name>
+    <url-pattern>*.action</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AddArgument</servlet-name>
-    <url-pattern>/servlet/AddArgument</url-pattern>
-  </servlet-mapping>
+
 
 </web-app>

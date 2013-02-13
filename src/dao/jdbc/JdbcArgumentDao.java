@@ -133,6 +133,29 @@ public class JdbcArgumentDao implements ArgumentDao {
 	}
 
 
+	public List<Argument> findAllArgumentPool() throws Exception {
+		List<Argument> arguments = new ArrayList<Argument>();
+		try{
+	
+			
+			PreparedStatement pstm= DBUtil.getConnection().prepareStatement("select * from argument_pool");
+			ResultSet rs=pstm.executeQuery();
+			while(rs.next()){
+
+				Argument a= new Argument();	
+				a.setId(rs.getInt("id"));
+				a.setPassage(rs.getString("passage"));
+				a.setQuestion(rs.getString("question"));
+			
+				arguments.add(a);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+			System.out.println("Find Argument pool--size :"+arguments.size());
+			return arguments;
+		}
+
 
 
 }

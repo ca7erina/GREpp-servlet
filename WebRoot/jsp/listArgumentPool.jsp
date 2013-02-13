@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*,java.text.*" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,16 +16,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="imoney">
+	<meta http-equiv="description" content="gre">
 	
-	<link href="css/iCss.css" rel="stylesheet" type="text/css" >
-	<script type="text/javascript" src="js/jquery-1.4.3.js"></script>
+		<link href="../css/iCss.css" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
 	<script>
 		
 		$(function(){
 		var s=setInterval(function(){
 		
-		$("#timer").text(Date());	
+		$("#clock").text(Date());	
 		},800);
 				
 		
@@ -37,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<div class="header"><img src="img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
+		<div class="header"><img src="../img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
 	
 		
 	
@@ -55,11 +56,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			
 			<div class="context">
-			<div id = "title"><a>--Budget Left: 600 RMB </a> </div>
-			<div id ="clock" ><h1 id="timer">&infin;</h1></div>
+			<div id = "title"><a>Argument Pool </a> </div>
+			<div id ="clock" ><h1 id="clock"></h1></div>
+				<div id="show">
+					<table id="tabledata">
+						 <c:forEach var="a" items="${arguments}" varStatus="status">
+						<tr class="row${status.index%2+1 }" >
+							<td></td><td>${a.id} . ${a.passage }</td>
+							</tr>
+						<tr class="row${status.index%2+1 }" >
+							<td></td><td>${a.question}</td>
+						</tr>
+							<tr class="rowNull" >
+							<td>  </td><td><a href="">Records</td>
+						</tr>
+						 </c:forEach>
+					</table>
 				
-				
-				<div id="diagram">Diagr</div>
+				</div>
 				<div id="cleardiv"></div>
 				<div class="dataform">
 					
@@ -70,10 +84,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div id="sidebar2" class="sidebar">
 				<ul id="test">
 				<li class="items"><a href="home.jsp">Home</a></li>
-				<li class="items"><a href="">Money path</a></li>
-				<li class="items"><a href="">Data Table</a></li>
-				<li class="items"><a href=""></a></li>
-				<li class="items"><a href=""></a></li>
+				<li class="items"><a href="">Argument</a></li>
+				<li class="items"><a href="">Issue</a></li>
+				<li class="items"><a href="">Verbal</a></li>
+				<li class="items"><a href="">Math</a></li>
+				<li class="items"><a href="">Reading</a></li>
+				<li class="items"><a href="">Argument Pool</a></li>
+				<li class="items"><a href="">Issue Pool</a></li>
 				</ul>
 				</div>
 				

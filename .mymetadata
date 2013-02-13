@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="GREpp"
+  name="GREpp-servlet"
   id="myeclipse.1360147506171"
-  context-root="/GREpp"
+  context-root="/GREpp-servlet"
   j2ee-spec="5.0"
-  archive="GREpp.war">
+  archive="GREpp-servlet.war">
   <attributes>
-    <attribute name="webrootdir" value="WebRoot" />
+    <attribute name="webrootdir" value="/WebRoot" />
   </attributes>
 </project-module>
 

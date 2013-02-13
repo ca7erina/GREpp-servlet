@@ -15,4 +15,5 @@ public interface ArgumentDao {
 	public List<Argument> findArgumentById(int id) throws Exception;
 
 	public List<Argument> findAllArgument() throws Exception;
+	public List<Argument> findAllArgumentPool() throws Exception;
 }
