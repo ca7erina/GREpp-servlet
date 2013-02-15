@@ -38,22 +38,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<div class="header"><img src="../img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
-	
-		
+		<%@include file="../common/head.jsp"%>
 	
 	
 		<div class="content">
 			
 			<%@include file="../common/sidebarUp.jsp"%>
-			
-		
-			
+	
 			<div class="context">
 			<div id = "title"><a>Argument Pool </a> </div>
-			<div id ="clock" ><h1 id="clock"></h1></div>
+			
 				<div id="show">
-					<table id="formal1">
+					<table id>
 						 <c:forEach var="a" items="${arguments}" varStatus="status">
 						<tr class="row${status.index%2+1 }" >
 							<td ><div class="block${status.index%2+1 }">${a.id} . ${a.passage }</div></td>
@@ -61,7 +57,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr class="row${status.index%2+1 }" >
 							<td ><div class="block${status.index%2+1 }">${a.question}</div></td>
 						</tr>
-							<tr class="rowNull" >
+						<tr class="row${status.index%2+1 }" >
+							<td ><div class="block${status.index%2+1 }">${a.answereInfo}</div></td>
+						</tr>
+						<tr class="row${status.index%2+1 }" >
+							<td ><div class="block${status.index%2+1 }">${a.answere}</div></td>
+						</tr>
+						<tr class="rowNull" >
 							<td><a href="">Detail</td>
 						</tr>
 						 </c:forEach>

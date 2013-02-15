@@ -8,25 +8,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    
-    
+       
     <title>GRE</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="imoney">
+	<meta http-equiv="description" content="gre">
 	
-	<link href="../css/iCss.css" rel="stylesheet" type="text/css" >
-	<script type="text/javascript" src="js/jquery-1.4.3.js">
-	</script>
+		<link href="../css/iCss.css" rel="stylesheet" type="text/css" >
+	<script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
 	<script>
 		
 		$(function(){
 		var s=setInterval(function(){
 		
-		$("#timer").text(Date());	
+		$("#clock").text(Date());	
 		},800);
 				
 		
@@ -39,44 +37,72 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<div class="header"><img src="img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
+		<div class="header"><img src="../img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
 	
-		
+		<div id ="clock" ><h1 id="timer">&infin;</h1></div>
 	
 	
-		<div class="content">
-			
-			<div class="sidebar">
-				<ul id="menuItems">
-				<li class="items"><a href="page/page.action?pageNo=2&pageSize=5">Records</a></li>
-				<li class="items"><a href="new.jsp">Add New</a></li>
-				<li class="items"><a href="">Search</a></li>
-				</ul>
-			</div>
+		<%@include file="../common/sidebarUp.jsp"%>
 			
 		
 			
 			<div class="context">
-			<div id = "title"><a>--Argument Pool</a> </div>
-			<div id ="clock" ><h1 id="timer">&infin;</h1></div>
-				<div id="show">
-					<table class="table">
-						<tr class="table_header">
+			<div id = "title"><a>Home</a> </div>
+				<div id="show" align="center">
+					<table class="table" >
+					<tr><td colspan="3"><div class="block3">Taking exercises</div></td></tr>
+						<tr>
 							<td>
-								ID
+								<div class="block1">Take a Verbal</div>
 							</td>
 							<td>
-								1
+									<div class="block1">Take a Reading</div>
 							</td>
 							<td>
-								2
+								<div class="block1">Take a Math</div>
+							</td>
+							</tr>
+							<tr>
+							<td>
+								<div class="block1">Take an Issue Writing</div>
 							</td>
 							<td>
-								3
+							   <div class="block1">Take an Argument Writing</div>
 							</td>
-							<td><br>
-							<br></td>
+							</tr>
+							<td colspan="3">
+							   <div class="block1">Take an exam :Verbal +Reading + Math</div>
+							</td>
+						<tr>
+							<td colspan="3">
+								<div class="block3">Review</div>
+							</td>
+							</tr>
+							<tr>
+							<td>
+									<div class="block2"> Reading</div>
+							</td>
+							<td>
+								<div class="block2"> Math</div>
+							</td>
+							<td>
+								<div class="block2"> Verbal</div>
+							</td>
+							</tr>
+							<tr>
+							<td>
+								<div class="block2"> Issue Writing</div>
+							</td>
+							<td>
+							   <div class="block2"> Argument Writing</div>
+							</td>
+							</tr>
+							<tr>
+							<td colspan="3">
+							   <div class="block2">Take an exam :Verbal +Reading + Math</div>
+							</td>
 						</tr>
+						
 
 						 <c:forEach var="v" items="${verbals}" varStatus="status">
 						<tr class="row${status.index%2+1 }" >
@@ -88,8 +114,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						
 						 </c:forEach>
-					</table>
 				
+					<tr><td colspan="3"><div class="block3">Favorite</div></td></tr>
+						<tr>
+							<td>
+								<div class="block1">Verbal</div>
+							</td>
+							<td>
+									<div class="block1">Reading</div>
+							</td>
+							<td>
+								<div class="block1">Math</div>
+							</td>
+							</tr>
+							<tr>
+							<td>
+								<div class="block1"> Issue Writing</div>
+							</td>
+							<td>
+							   <div class="block1">Argument Writing</div>
+							</td>
+							</tr>
+					</table>
+					
 				</div>
 				<div id="cleardiv"></div>
 				<div class="dataform">
@@ -98,18 +145,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			
 			
-				<div id="sidebar2" class="sidebar">
-				<ul id="test">
-				<li class="items"><a href="home.jsp">Home</a></li>
-				<li class="items"><a href="">Argument</a></li>
-				<li class="items"><a href="">Issue</a></li>
-				<li class="items"><a href="">Verbal</a></li>
-				<li class="items"><a href="">Math</a></li>
-				<li class="items"><a href="">Reading</a></li>
-				<li class="items"><a href="listArgumentPool.action">Argument pool</a></li>
-				<li class="items"><a href=""></a></li>
-				</ul>
-				</div>
+				<%@include file="../common/sidebarDown.jsp"%>
 				
 		</div>
 		

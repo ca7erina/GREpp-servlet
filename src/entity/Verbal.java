@@ -51,7 +51,7 @@ public class Verbal extends Choice {
 		
 	}
 	
-	public  Map<Character,String> parseChoice(String choice){
+	public  static Map<Character,String> parseChoice(String choice){
 		Map<Character,String> choices= new HashMap<Character,String>();
 		choice=choice+";";
 		String cs[]=choice.trim().split(";");
@@ -66,7 +66,7 @@ public class Verbal extends Choice {
 		return choices;
 		
 	}
-	public List<Character> parseAnswer(String answer){
+	public static List<Character> parseAnswer(String answer){
 		List<Character> answers = new ArrayList<Character>();
 		answer=answer+";";
 		String temp[]=answer.trim().split(";");

@@ -124,8 +124,17 @@ public class JdbcArgumentDao implements ArgumentDao {
 		PreparedStatement pstm= DBUtil.getConnection().prepareStatement("select * from argument");
 		ResultSet rs=pstm.executeQuery();
 		while(rs.next()){
-
-			Argument a= new Argument(rs.getInt("id"),rs.getInt("id_in_pool"), rs.getInt("frequence"),rs.getString("passage"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true);	
+			Argument a= new Argument();	
+			a.setId(rs.getInt("id"));
+			a.setIdInPool(rs.getInt("id_in_pool"));
+			a.setFrequence(rs.getInt("frequence"));
+			a.setPassage(rs.getString("passage"));
+			a.setQuestion(rs.getString("question"));
+			a.setAnswere(rs.getString("answer"));
+			a.setAnswereInfo(rs.getString("answer_info"));
+			a.setCatagory(rs.getString("catagory"));
+			a.setHistoryDate(rs.getDate("history_date"));
+			a.setTaken(rs.getInt("taken")==0? false:true);
 			arguments.add(a);
 		}
 		System.out.println("find All book/n"+arguments);

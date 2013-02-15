@@ -45,13 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		<div class="content">
 			
-			<div class="sidebar">
-				<ul id="menuItems">
-				<li class="items"><a href="page/page.action?pageNo=2&pageSize=5">Records</a></li>
-				<li class="items"><a href="new.jsp">Add New</a></li>
-				<li class="items"><a href="">Search</a></li>
-				</ul>
-			</div>
+			<%@include file="../common/sidebarUp.jsp"%>
 			
 		
 			

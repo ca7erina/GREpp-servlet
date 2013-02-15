@@ -50,11 +50,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			
 			<div class="context">
-			<div id = "title"><a>Argument Pool </a> </div>
+			<div id = "title"><a>Issue Pool </a> </div>
 			<div id ="clock" ><h1 id="clock"></h1></div>
 				<div id="show">
 					<table id="formal1">
-						 <c:forEach var="a" items="${arguments}" varStatus="status">
+						 <c:forEach var="a" items="${issues}" varStatus="status">
 						<tr class="row${status.index%2+1 }" >
 							<td ><div class="block${status.index%2+1 }">${a.id} . ${a.passage }</div></td>
 							</tr>

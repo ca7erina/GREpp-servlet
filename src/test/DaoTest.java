@@ -26,7 +26,7 @@ public class DaoTest {
 	public static void testArgumentDao(){
 		ArgumentDao dao= new JdbcArgumentDao();
 			try {
-				dao.findAllArgumentPool();
+				dao.findAllArgument();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

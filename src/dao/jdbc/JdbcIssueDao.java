@@ -14,6 +14,7 @@ import java.util.List;
 import util.DBUtil;
 import util.JdbcUtil;
 import dao.IssueDao;
+import entity.Argument;
 import entity.Issue;
 
 
@@ -126,8 +127,17 @@ public class JdbcIssueDao implements IssueDao {
 			pstm = DBUtil.getConnection().prepareStatement("select * from issue");
 			ResultSet rs=pstm.executeQuery();
 			while(rs.next()){
-
-				Issue a= new Issue(rs.getInt("id"),rs.getInt("id_in_pool"), rs.getInt("frequence"),rs.getString("passage"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true);	
+				Issue a= new Issue();	
+				a.setId(rs.getInt("id"));
+				a.setIdInPool(rs.getInt("id_in_pool"));
+				a.setFrequence(rs.getInt("frequence"));
+				a.setPassage(rs.getString("passage"));
+				a.setQuestion(rs.getString("question"));
+				a.setAnswere(rs.getString("answer"));
+				a.setAnswereInfo(rs.getString("answer_info"));
+				a.setCatagory(rs.getString("catagory"));
+				a.setHistoryDate(rs.getDate("history_date"));
+				a.setTaken(rs.getInt("taken")==0? false:true);
 				issues.add(a);
 			}
 			System.out.println("find All book/n"+issues);
@@ -140,6 +150,27 @@ public class JdbcIssueDao implements IssueDao {
 		}
 		
 		return issues;
+	}
+
+	public List<Issue> findAllIssuePool() throws Exception {
+		List<Issue> issues = new ArrayList<Issue>();
+		try{
+			PreparedStatement pstm= DBUtil.getConnection().prepareStatement("select * from issue_pool");
+			ResultSet rs=pstm.executeQuery();
+			while(rs.next()){
+
+				Issue a= new Issue();	
+				a.setId(rs.getInt("id"));
+				a.setPassage(rs.getString("passage"));
+				a.setQuestion(rs.getString("question"));
+			
+				issues.add(a);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+			System.out.println("Find Argument pool--size :"+issues.size());
+			return issues;
 	}
 
 

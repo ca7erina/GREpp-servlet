@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ArgumentDao;
-import dao.jdbc.JdbcArgumentDao;
-import entity.Argument;
+import dao.*;
+import dao.jdbc.*;
+import entity.*;
 
 
 public class GeneralServlet extends HttpServlet {
@@ -69,7 +69,63 @@ public class GeneralServlet extends HttpServlet {
 			}
 			
 				return;
-			}else{
+			} else if (path.equalsIgnoreCase("listArgument")) {
+				ArgumentDao dao= new JdbcArgumentDao();
+				try {
+					List<Argument> arguments=dao.findAllArgument();
+					request.setAttribute("arguments", arguments);
+					request.getRequestDispatcher("listArgument.jsp").forward(request,
+							response);
+					return;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+					return;
+				}else if (path.equalsIgnoreCase("listIssuePool")) {
+				IssueDao dao= new JdbcIssueDao();
+				try {
+					List<Issue> issues=dao.findAllIssuePool();
+					request.setAttribute("issues", issues);
+					request.getRequestDispatcher("listIssuePool.jsp").forward(request,
+							response);
+					return;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+					return;
+				}else if (path.equalsIgnoreCase("listIssue")) {
+					IssueDao dao= new JdbcIssueDao();
+					try {
+						List<Issue> issues=dao.findAllIssue();
+						request.setAttribute("issues", issues);
+						request.getRequestDispatcher("listIssue.jsp").forward(request,
+								response);
+						return;
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+						return;
+					}else if (path.equalsIgnoreCase("listReading")) {
+						ReadingDao dao= new JdbcReadingDao();
+						try {
+							List<Reading> readings=dao.findAllReading();
+							request.setAttribute("readings", readings);
+							request.getRequestDispatcher("listReading.jsp").forward(request,
+									response);
+							return;
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+							return;
+						}else{
 				System.out.println(" path error");
 			}
 

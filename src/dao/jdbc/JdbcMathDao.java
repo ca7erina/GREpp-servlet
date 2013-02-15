@@ -55,7 +55,7 @@ public class JdbcMathDao implements MathDao {
 			Math a= new Math(rs.getInt("id"),rs.getInt("frequence"),rs.getString("picture"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true);	
 			maths.add(a);
 		}
-		System.out.println("find All book/n"+maths);
+		System.out.println("find All math/n"+maths);
 		return maths;
 	}
 

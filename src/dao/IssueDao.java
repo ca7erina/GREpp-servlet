@@ -12,4 +12,5 @@ public interface IssueDao {
 	public List<Issue> findIssueById(int id) throws Exception;
 
 	public List<Issue> findAllIssue() throws Exception;
+	public List<Issue> findAllIssuePool() throws Exception;
 }

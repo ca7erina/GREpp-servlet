@@ -46,22 +46,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="content">
 			
 			<%@include file="../common/sidebarUp.jsp"%>
-			
-		
-			
+	
 			<div class="context">
-			<div id = "title"><a>Argument Pool </a> </div>
+			<div id = "title"><a>Issue</a> </div>
 			<div id ="clock" ><h1 id="clock"></h1></div>
 				<div id="show">
 					<table id="formal1">
-						 <c:forEach var="a" items="${arguments}" varStatus="status">
+						 <c:forEach var="a" items="${issues}" varStatus="status">
 						<tr class="row${status.index%2+1 }" >
 							<td ><div class="block${status.index%2+1 }">${a.id} . ${a.passage }</div></td>
 							</tr>
 						<tr class="row${status.index%2+1 }" >
 							<td ><div class="block${status.index%2+1 }">${a.question}</div></td>
 						</tr>
-							<tr class="rowNull" >
+						<tr class="row${status.index%2+1 }" >
+							<td ><div class="block${status.index%2+1 }">${a.answereInfo}</div></td>
+						</tr>
+						<tr class="row${status.index%2+1 }" >
+							<td ><div class="block${status.index%2+1 }">${a.answere}</div></td>
+						</tr>
+						<tr class="rowNull" >
 							<td><a href="">Detail</td>
 						</tr>
 						 </c:forEach>
