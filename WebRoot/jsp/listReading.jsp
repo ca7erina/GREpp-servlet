@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<div class="header"><img src="../img/gre_header_logo_105x72.jpg" style="margin:0px auto"></div>
+		<%@include file="../common/head.jsp"%>
 	
 		
 	
