@@ -135,6 +135,7 @@ public class JdbcArgumentDao implements ArgumentDao {
 			a.setCatagory(rs.getString("catagory"));
 			a.setHistoryDate(rs.getDate("history_date"));
 			a.setTaken(rs.getInt("taken")==0? false:true);
+			a.setFavourite(rs.getInt("favourite"));
 			arguments.add(a);
 		}
 		System.out.println("find All book/n"+arguments);

@@ -14,14 +14,26 @@ public class Entry {
 	private String catagory;
 	private Date historyDate;
 	private Boolean taken;
+	private int favourite;
 	
+	
+	
+	
+	public int getFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(int favourite) {
+		this.favourite = favourite;
+	}
+
 	public Entry(){
 		
 	}
 	
 	public Entry(Integer id, Integer idInPool, Integer frequence,
 			String passage, String question, String answere,
-			String answereInfo, String catagory, Date historyDate, Boolean taken) {
+			String answereInfo, String catagory, Date historyDate, Boolean taken,int favourite) {
 		super();
 		this.id = id;
 		this.idInPool = idInPool;
@@ -33,6 +45,7 @@ public class Entry {
 		this.catagory = catagory;
 		this.historyDate = historyDate;
 		this.taken = taken;
+		this.favourite=favourite;
 	}
 	
 	

@@ -58,6 +58,7 @@ public class JdbcVerbalDao implements VerbalDao {
 			a.setTaken(rs.getInt("taken")==0? false:true);
 			a.setFrequence(rs.getInt("freguence"));
 			a.setHistoryDate(rs.getDate("history_date"));
+			a.setFavourite(rs.getInt("favourite"));
 			verbals.add(a);
 		}
 		System.out.println("find All book/n"+verbals);

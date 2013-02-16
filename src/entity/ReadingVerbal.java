@@ -16,6 +16,7 @@ public class ReadingVerbal extends Verbal {
 	private String question;	
 	private String answerInfo;
 	private Boolean taken;
+	private int favourite;
 	private Map<Character,String> choice = new HashMap<Character, String>();
 	private List<Character> answer= new ArrayList<Character>();
 	
@@ -65,6 +66,15 @@ public class ReadingVerbal extends Verbal {
 
 	public void setAnswer(List<Character> answer) {
 		this.answer = answer;
+	}
+	
+
+	public int getFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(int favourite) {
+		this.favourite = favourite;
 	}
 
 	public ReadingVerbal(){

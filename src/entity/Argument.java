@@ -8,9 +8,9 @@ public class Argument extends Entry {
 	}
 	public Argument(Integer id, Integer idInPool, Integer frequence,
 			String passage, String question, String answere,
-			String answereInfo, String catagory, Date historyDate, Boolean taken) {
+			String answereInfo, String catagory, Date historyDate, Boolean taken,int favourite) {
 		super(id, idInPool, frequence, passage, question, answere, answereInfo,
-				catagory, historyDate, taken);
+				catagory, historyDate, taken,favourite);
 		// TODO Auto-generated constructor stub
 	}
 

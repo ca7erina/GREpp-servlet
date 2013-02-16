@@ -16,8 +16,17 @@ public class Choice {
 	private Date historyDate;
 	private Integer frequence;
 	private Boolean taken;
+	private int favourite;
 
 	
+	public int getFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(int favourite) {
+		this.favourite = favourite;
+	}
+
 	public Choice(){
 		
 	}

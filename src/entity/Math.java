@@ -12,14 +12,89 @@ public class Math extends Entry {
 	private String catagory;
 	private Date historyDate;
 	private Boolean taken;
+	private int favourite;
 	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getFrequence() {
+		return frequence;
+	}
+
+	public void setFrequence(Integer frequence) {
+		this.frequence = frequence;
+	}
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public String getAnswere() {
+		return answere;
+	}
+
+	public void setAnswere(String answere) {
+		this.answere = answere;
+	}
+
+	public String getAnswereInfo() {
+		return answereInfo;
+	}
+
+	public void setAnswereInfo(String answereInfo) {
+		this.answereInfo = answereInfo;
+	}
+
+	public String getCatagory() {
+		return catagory;
+	}
+
+	public void setCatagory(String catagory) {
+		this.catagory = catagory;
+	}
+
+	public Date getHistoryDate() {
+		return historyDate;
+	}
+
+	public void setHistoryDate(Date historyDate) {
+		this.historyDate = historyDate;
+	}
+
+	public Boolean getTaken() {
+		return taken;
+	}
+
+	public void setTaken(Boolean taken) {
+		this.taken = taken;
+	}
+
+	public int getFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(int favourite) {
+		this.favourite = favourite;
+	}
+
 	public Math(){
 		
 	}
 
 	public Math(Integer id, Integer frequence, String picture, String question,
 			String answere, String answereInfo, String catagory,
-			Date historyDate, Boolean taken) {
+			Date historyDate, Boolean taken,int favourite) {
 		super();
 		this.id = id;
 		this.frequence = frequence;
@@ -30,6 +105,7 @@ public class Math extends Entry {
 		this.catagory = catagory;
 		this.historyDate = historyDate;
 		this.taken = taken;
+		this.favourite=favourite;
 	}
 
 	public Math(Integer frequence, String picture, String question,

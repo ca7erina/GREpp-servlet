@@ -69,7 +69,7 @@ public class JdbcReadingDao implements ReadingDao {
 		PreparedStatement pstm= DBUtil.getConnection().prepareStatement("select * from reading");
 		ResultSet rs=pstm.executeQuery();
 		while(rs.next()){
-			Reading a= new Reading(rs.getInt("id"), rs.getInt("frequence"),rs.getString("passage"), rs.getString("catagory"), rs.getDate("history_date"));	
+			Reading a= new Reading(rs.getInt("id"), rs.getInt("frequence"),rs.getString("passage"), rs.getString("catagory"),rs.getInt("favourite"), rs.getDate("history_date"));	
 			
 			a.setReadingverbals( findReadingVerbal(a.getId()));
 			readings.add(a);
@@ -112,6 +112,7 @@ public class JdbcReadingDao implements ReadingDao {
 				List<Character> answers= new Verbal().parseAnswer(rs.getString("answer"));
 				v.setAnswer(answers);
 				v.setAnswerInfo(rs.getString("answer_info"));
+				v.setFavourite(rs.getInt("favourite"));
 				
 				Map<Character,String> choices= new Verbal().parseChoice(rs.getString("choice"));
 				v.setChoice(choices);

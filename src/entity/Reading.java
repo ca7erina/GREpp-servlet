@@ -10,6 +10,8 @@ public class Reading {
 	private String passage;
 	private String catagory;
 	private Date historyDate;
+	private int favourite;
+	
 	List <ReadingVerbal> readingverbals= new ArrayList<ReadingVerbal>();
 	
 	public Reading(){
@@ -27,16 +29,17 @@ public class Reading {
 	
 
 	public Reading(Integer id, Integer frequence, String passage,
-			String catagory, Date historyDate) {
+			String catagory,Integer favourite, Date historyDate) {
 		super();
 		this.id = id;
 		this.frequence = frequence;
 		this.passage = passage;
 		this.catagory = catagory;
 		this.historyDate = historyDate;
+		this.favourite=favourite;
 	}
 	public Reading(Integer id, Integer frequence, String passage,
-			String catagory, Date historyDate,
+			String catagory, Date historyDate,Integer favourite,
 			List<ReadingVerbal> readingverbals) {
 		super();
 		this.id = id;
@@ -45,6 +48,7 @@ public class Reading {
 		this.catagory = catagory;
 		this.historyDate = historyDate;
 		this.readingverbals = readingverbals;
+		this.favourite=favourite;
 	}
 	
 	@Override
@@ -145,6 +149,12 @@ public class Reading {
 	}
 	public void setReadingverbals(List<ReadingVerbal> readingverbals) {
 		this.readingverbals = readingverbals;
+	}
+	public int getFavourite() {
+		return favourite;
+	}
+	public void setFavourite(int favourite) {
+		this.favourite = favourite;
 	}
 	
 }

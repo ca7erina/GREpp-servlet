@@ -138,6 +138,7 @@ public class JdbcIssueDao implements IssueDao {
 				a.setCatagory(rs.getString("catagory"));
 				a.setHistoryDate(rs.getDate("history_date"));
 				a.setTaken(rs.getInt("taken")==0? false:true);
+				a.setFavourite(rs.getInt("favourite"));
 				issues.add(a);
 			}
 			System.out.println("find All book/n"+issues);

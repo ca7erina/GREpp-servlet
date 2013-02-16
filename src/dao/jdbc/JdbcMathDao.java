@@ -52,7 +52,7 @@ public class JdbcMathDao implements MathDao {
 		ResultSet rs=pstm.executeQuery();
 		while(rs.next()){
 
-			Math a= new Math(rs.getInt("id"),rs.getInt("frequence"),rs.getString("picture"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true);	
+			Math a= new Math(rs.getInt("id"),rs.getInt("frequence"),rs.getString("picture"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true,rs.getInt("favourite"));	
 			maths.add(a);
 		}
 		System.out.println("find All math/n"+maths);
