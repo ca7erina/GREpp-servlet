@@ -18,7 +18,7 @@
 	
 	</head>
 	<body >
-	<%@include file="../common/head.jsp"%>
+	<%@include file="../common/banner.jsp"%>
 		<div class="simple">
 <span style="color:#ff0000 "><%=request.getAttribute("loginError")==null? "": (String)request.getAttribute("loginError")%></span>
 		<form action="login.action" >

@@ -13,10 +13,33 @@
   </init-param>
 </servlet>
 
+<servlet>
+    <servlet-name>ListByPage</servlet-name>
+    <servlet-class>action.ListByPage</servlet-class>
+   <init-param>
+   <param-name>suffix2</param-name>
+   <param-value>.list</param-value>
+  </init-param>
+</servlet>
+
+  <servlet>
+    <servlet-name>ListArgumentServletByPage</servlet-name>
+    <servlet-class>action.ListArgumentServletByPage</servlet-class>
+  </servlet>
+
+
 
   <servlet-mapping>
     <servlet-name>GeneralServlet</servlet-name>
     <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ListByPage</servlet-name>
+    <url-pattern>*.list</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListArgumentServletByPage</servlet-name>
+    <url-pattern>/listArgumentByPage</url-pattern>
   </servlet-mapping>
 
 

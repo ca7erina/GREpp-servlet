@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -165,7 +166,34 @@ public class JdbcArgumentDao implements ArgumentDao {
 			System.out.println("Find Argument pool--size :"+arguments.size());
 			return arguments;
 		}
-
+		
+		public List<Argument> findArgumentByPage(int iftaken,int page,int pagesize ) throws Exception{
+			String sql="select * from argument where taken=? limit ?,?";		 
+			List<Argument> arguments= new ArrayList<Argument>();
+			PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+			int index=1;
+			pstm.setInt(index++,iftaken);
+			pstm.setInt(index++,(page-1)*pagesize+1);
+			pstm.setInt(index++,pagesize);
+			ResultSet rs=pstm.executeQuery();
+			while(rs.next()){
+				Argument a= new Argument();
+				a.setId(rs.getInt("id"));
+				a.setIdInPool(rs.getInt("id_in_pool"));
+				a.setFrequence(rs.getInt("frequence"));
+				a.setPassage(rs.getString("passage"));
+				a.setQuestion(rs.getString("question"));
+				a.setAnswere(rs.getString("answer"));
+				a.setAnswereInfo(rs.getString("answer_info"));
+				a.setCatagory(rs.getString("catagory"));
+				a.setHistoryDate(rs.getDate("history_date"));
+				a.setTaken(rs.getInt("taken")==0? false:true);
+				a.setFavourite(rs.getInt("favourite"));
+				arguments.add(a);
+			}
+			
+			return arguments;
+		}
 
 
 }

@@ -14,6 +14,7 @@ import util.DBUtil;
 
 
 import entity.Math;
+import entity.Math;
 
 
 
@@ -59,7 +60,23 @@ public class JdbcMathDao implements MathDao {
 		return maths;
 	}
 
-
+	public List<Math> findMathByPage(int iftaken,int page,int pagesize ) throws Exception, Exception{
+		String sql="select * from math where taken=? limit ?,?";		 
+		List<Math> maths= new ArrayList<Math>();
+		PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+		int index=1;
+		pstm.setInt(index++,iftaken);
+		pstm.setInt(index++,(page-1)*pagesize+1);
+		pstm.setInt(index++,pagesize);
+		ResultSet rs=pstm.executeQuery();
+		while(rs.next()){
+		
+			Math a= new Math(rs.getInt("id"),rs.getInt("frequence"),rs.getString("picture"), rs.getString("question"), rs.getString("answer"), rs.getString("answer_info"), rs.getString("catagory"), rs.getDate("history_date"),rs.getInt("taken")==0? false:true,rs.getInt("favourite"));	
+			maths.add(a);
+		}
+		
+		return maths;
+	}
 
 
 }

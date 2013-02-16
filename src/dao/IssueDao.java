@@ -3,6 +3,7 @@ package dao;
 
 import java.util.List;
 
+import entity.Argument;
 import entity.Issue;
 
 public interface IssueDao {
@@ -13,4 +14,5 @@ public interface IssueDao {
 
 	public List<Issue> findAllIssue() throws Exception;
 	public List<Issue> findAllIssuePool() throws Exception;
+	public List<Issue> findIssueByPage(int iftaken, int page, int pagesize) throws Exception;
 }

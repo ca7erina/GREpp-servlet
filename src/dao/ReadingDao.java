@@ -4,6 +4,7 @@ package dao;
 import java.util.List;
 
 
+import entity.Issue;
 import entity.Reading;
 import entity.ReadingVerbal;
 
@@ -14,4 +15,6 @@ public interface ReadingDao {
 	public List<Reading> findReadingById(int id) throws Exception;
 
 	public List<Reading> findAllReading() throws Exception;
+	public List<Reading> findReadingByPage(int iftaken, int page, int pagesize) throws Exception;
+
 }

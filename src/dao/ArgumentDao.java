@@ -16,4 +16,5 @@ public interface ArgumentDao {
 
 	public List<Argument> findAllArgument() throws Exception;
 	public List<Argument> findAllArgumentPool() throws Exception;
+	public List<Argument> findArgumentByPage(int iftaken,int page,int pagesize ) throws Exception;
 }

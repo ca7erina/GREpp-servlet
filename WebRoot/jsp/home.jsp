@@ -17,8 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="gre">
 	
-		<link href="../css/iCss.css" rel="stylesheet" type="text/css" >
-	<script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
+		<link href="/GREpp-servlet/css/iCss.css" rel="stylesheet" type="text/css" >
+	<script type="/GREpp-servlet/text/javascript" src="../js/jquery-1.4.3.js"></script>
 	<script>
 		
 		$(function(){
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<%@include file="../common/head.jsp"%>
+		<%@include file="../common/banner.jsp"%>
 	
 	
 		<%@include file="../common/sidebarUp.jsp"%>
@@ -51,21 +51,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr><td colspan="3"><div class="block3">Taking exercises</div></td></tr>
 						<tr>
 							<td>
-								<div class="block1">Take a Verbal</div>
+								<div class="block1"><a href="verbal.list?iftaken=0&page=1&pagesize=10">Take a Verbal</a></div>
 							</td>
 							<td>
-									<div class="block1">Take a Reading</div>
+									<div class="block1"><a href="reading.list?iftaken=0&page=1&pagesize=1">Take a Reading</a></div>
 							</td>
 							<td>
-								<div class="block1">Take a Math</div>
+								<div class="block1"><a href="math.list?iftaken=0&page=1&pagesize=5">Take a Math</a></div>
 							</td>
 							</tr>
 							<tr>
 							<td>
-								<div class="block1">Take an Issue Writing</div>
+								<div class="block1"><a href="issue.list?iftaken=0&page=1&pagesize=1">Take an Issue Writing</a></div>
 							</td>
 							<td>
-							   <div class="block1">Take an Argument Writing</div>
+							   <div class="block1"><a href="argument.list?iftaken=0&page=1&pagesize=1">Take an Argument Writing </a></div>
 							</td>
 							</tr>
 							<td colspan="3">

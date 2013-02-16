@@ -3,6 +3,7 @@ package dao.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
 import dao.VerbalDao;
 
 import util.DBUtil;
+import util.JdbcUtil;
 
 
 
+import entity.Verbal;
 import entity.Verbal;
 
 
@@ -64,7 +67,31 @@ public class JdbcVerbalDao implements VerbalDao {
 		System.out.println("find All book/n"+verbals);
 		return verbals;
 	}
-
+	public List<Verbal> findVerbalByPage(int iftaken,int page,int pagesize ) throws Exception, Exception{
+		String sql="select * from verbal where taken=? limit ?,?";		 
+		List<Verbal> verbals= new ArrayList<Verbal>();
+		PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+		int index=1;
+		pstm.setInt(index++,iftaken);
+		pstm.setInt(index++,(page-1)*pagesize+1);
+		pstm.setInt(index++,pagesize);
+		ResultSet rs=pstm.executeQuery();
+		while(rs.next()){
+			Verbal a= new Verbal();
+			a.setId(rs.getInt("id"));
+			a.setAnswer(a.parseAnswer(rs.getString("answer")));
+			a.setAnswerInfo(rs.getString("answer_info"));
+			a.setChoice(a.parseChoice(rs.getString("choice")));
+			a.setQuestion(rs.getString("question"));
+			a.setTaken(rs.getInt("taken")==0? false:true);
+			a.setFrequence(rs.getInt("freguence"));
+			a.setHistoryDate(rs.getDate("history_date"));
+			a.setFavourite(rs.getInt("favourite"));
+			verbals.add(a);
+		}
+		
+		return verbals;
+	}
 
 
 

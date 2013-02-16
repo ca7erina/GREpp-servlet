@@ -16,6 +16,7 @@ import util.JdbcUtil;
 import dao.IssueDao;
 import entity.Argument;
 import entity.Issue;
+import entity.Issue;
 
 
 
@@ -109,7 +110,34 @@ public class JdbcIssueDao implements IssueDao {
 		}
 		return rs;
 	}
-
+	public List<Issue> findIssueByPage(int iftaken,int page,int pagesize ) throws Exception, Exception{
+		String sql="select * from issue where taken=? limit ?,?";		 
+		List<Issue> issues= new ArrayList<Issue>();
+		PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+		int index=1;
+		pstm.setInt(index++,iftaken);
+		pstm.setInt(index++,(page-1)*pagesize+1);
+		pstm.setInt(index++,pagesize);
+		ResultSet rs=pstm.executeQuery();
+		while(rs.next()){
+		
+			Issue a= new Issue();	
+			a.setId(rs.getInt("id"));
+			a.setIdInPool(rs.getInt("id_in_pool"));
+			a.setFrequence(rs.getInt("frequence"));
+			a.setPassage(rs.getString("passage"));
+			a.setQuestion(rs.getString("question"));
+			a.setAnswere(rs.getString("answer"));
+			a.setAnswereInfo(rs.getString("answer_info"));
+			a.setCatagory(rs.getString("catagory"));
+			a.setHistoryDate(rs.getDate("history_date"));
+			a.setTaken(rs.getInt("taken")==0? false:true);
+			a.setFavourite(rs.getInt("favourite"));
+			issues.add(a);
+		}
+		
+		return issues;
+	}
 	
 
 	public List<Issue> findIssueById(int id)  {

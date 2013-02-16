@@ -18,6 +18,7 @@ import util.DBUtil;
 
 
 import entity.Reading;
+import entity.Reading;
 import entity.ReadingVerbal;
 import entity.Verbal;
 
@@ -131,10 +132,56 @@ public class JdbcReadingDao implements ReadingDao {
 			e.printStackTrace();
 		}
 		
-		
 		return r;
 		
 	}
+	public List<Reading> findReadingByPage(int iftaken,int page,int pagesize ) throws Exception{
+		String sql="select * from reading where taken=? limit ?,?";		 
+		List<Reading> readings= new ArrayList<Reading>();
+		PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+		int index=1;
+		pstm.setInt(index++,iftaken);
+		pstm.setInt(index++,(page-1)*pagesize+1);
+		pstm.setInt(index++,pagesize);
+		ResultSet rs=pstm.executeQuery();
+		while(rs.next()){
+		
+			Reading a= new Reading(rs.getInt("id"), rs.getInt("frequence"),rs.getString("passage"), rs.getString("catagory"),rs.getInt("favourite"), rs.getDate("history_date"));	
+			
+			a.setReadingverbals( findReadingVerbalByTaken(iftaken,a.getId()));
+			readings.add(a);
+		}
+		return readings;
+	}
 
-
-}
+	public 	List <ReadingVerbal> findReadingVerbalByTaken(int iftaken,int readingId){
+		List <ReadingVerbal> r= new ArrayList<ReadingVerbal>();
+		String sql="select * from reading_verbal where reading_id =? and taken=?";
+		try {
+			PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
+			pstm.setInt(1, readingId);
+			pstm.setInt(2,iftaken);
+		
+			ResultSet rs=pstm.executeQuery();
+			while(rs.next()){
+				ReadingVerbal v= new ReadingVerbal();
+				v.setId(rs.getInt("id"));
+				v.setReadingId(rs.getInt("reading_id"));
+				v.setQuestion(rs.getString("question"));
+				List<Character> answers= new Verbal().parseAnswer(rs.getString("answer"));
+				v.setAnswer(answers);
+				v.setAnswerInfo(rs.getString("answer_info"));
+				v.setFavourite(rs.getInt("favourite"));
+				
+				Map<Character,String> choices= new Verbal().parseChoice(rs.getString("choice"));
+				v.setChoice(choices);
+				v.setTaken(rs.getInt("taken")==0? false:true);	
+				r.add(v);
+		
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			}
+		return r;
+		}
+	}

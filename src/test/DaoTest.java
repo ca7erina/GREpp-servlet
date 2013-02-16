@@ -3,9 +3,12 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.*;
-import dao.jdbc.*;
-import entity.*;
+import dao.ArgumentDao;
+import dao.VerbalDao;
+import dao.jdbc.JdbcArgumentDao;
+import dao.jdbc.JdbcVerbalDao;
+import entity.Argument;
+import entity.Verbal;
 
 public class DaoTest {
 
@@ -26,7 +29,8 @@ public class DaoTest {
 	public static void testArgumentDao(){
 		ArgumentDao dao= new JdbcArgumentDao();
 			try {
-				dao.findAllArgument();
+				List<Argument> a=dao.findArgumentByPage(0, 1, 1);
+				System.out.println(a);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

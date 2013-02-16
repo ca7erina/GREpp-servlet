@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 	
 	
-		<%@include file="../common/head.jsp"%>
+		<%@include file="../common/banner.jsp"%>
 	
 		
 	
