@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr><td colspan="3"><div class="block3">Taking exercises</div></td></tr>
 						<tr>
 							<td>
-								<div class="block1"><a href="verbal.list?iftaken=0&page=1&pagesize=10">Take a Verbal</a></div>
+								<div class="block1"><a href="verbal.list?iftaken=0&page=1&pagesize=10">Take a Verbal &nbsp;(${totalNum })</a></div>
 							</td>
 							<td>
 									<div class="block1"><a href="reading.list?iftaken=0&page=1&pagesize=1">Take a Reading</a></div>
