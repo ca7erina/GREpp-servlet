@@ -3,12 +3,12 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.ArgumentDao;
-import dao.VerbalDao;
-import dao.jdbc.JdbcArgumentDao;
-import dao.jdbc.JdbcVerbalDao;
-import entity.Argument;
-import entity.Verbal;
+import dao.*;
+
+import dao.jdbc.*;
+
+import entity.*;
+
 
 public class DaoTest {
 
@@ -37,10 +37,31 @@ public class DaoTest {
 			}
 		
 	}
+	public static void testWordDao(){
+		WordDao dao= new JdbcWordDao();
+			try {
+				List<Word> a=dao.findWordByPage(0, 1, 1);
+				System.out.println("1--:" +a);
+				a=dao.findAllWord();
+				System.out.println(a);
+				Word w=new Word();
+				w.setLinksrc("");
+				w.setMeaning("");
+				w.setSpell("test");
+				dao.AddWord(w);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+		
+	}
 	
 	public static void main(String[] args) {
-		testArgumentDao();
-		
+		//testArgumentDao();
+		System.out.println("start");
+		testWordDao();
+		System.out.println("end");
+
 	}
 
 }
