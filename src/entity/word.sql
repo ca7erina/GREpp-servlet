@@ -4,6 +4,7 @@ create table word(
 	location varchar(50) default null,
 	frequence int(2) default 0,
 	spell varchar(30) not null,
+	example_sentence varchar(500) default null,
 	meaning varchar(100) default null,
 	linksrc varchar(300) default null,
 	history_date date not null,

@@ -19,13 +19,14 @@ public class JdbcWordDao implements WordDao {
 
 	
 	public Integer AddWord(Word word) throws Exception {
-		String sql="insert into word(location,frequence,spell,meaning,linksrc,history_date,favourite) values(?,?,?,?,?,?,?)";
+		String sql="insert into word(location,frequence,spell,example_sentence,meaning,linksrc,history_date,favourite) values(?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstm= DBUtil.getConnection().prepareStatement(sql);
 		int index=1;
 		pstm.setString(index++,word.getLocation());
 		pstm.setInt(index++,word.getFrequence());
 		pstm.setString(index++, word.getSpell());
+		pstm.setString(index++, word.getExampleSentence());
 		pstm.setString(index++, word.getMeaning());
 		pstm.setString(index++, word.getLinksrc());
 		pstm.setDate(index++,new Date(System.currentTimeMillis()));
@@ -45,6 +46,7 @@ public class JdbcWordDao implements WordDao {
 			a.setLocation(rs.getString("location"));
 			a.setFrequence(rs.getInt("freguence"));
 			a.setSpell(rs.getString("spell"));
+			a.setExampleSentence(rs.getString("example_sentence"));
 			a.setMeaning(rs.getString("meaning"));
 			a.setLinksrc(rs.getString("linksrc"));
 			a.setHistoryDate(rs.getDate("history_date"));
@@ -69,6 +71,7 @@ public class JdbcWordDao implements WordDao {
 			a.setLocation(rs.getString("location"));
 			a.setFrequence(rs.getInt("freguence"));
 			a.setSpell(rs.getString("spell"));
+			a.setExampleSentence(rs.getString("example_sentence"));
 			a.setMeaning(rs.getString("meaning"));
 			a.setLinksrc(rs.getString("linksrc"));
 			a.setHistoryDate(rs.getDate("history_date"));

@@ -10,9 +10,14 @@ private String location;
 private Integer frequence;
 private String spell;
 private String meaning;
+private String exampleSentence;
 private String linksrc="http://dict.youdao.com/search?le="+spell+"&q=time&keyfrom=dict.index";
 private Date HistoryDate;
 private Integer favorite;
+
+
+
+
 public Word(){
 	
 };
@@ -36,6 +41,14 @@ public Word(Integer id, String location, Integer frequence, String spell,
 	this.linksrc = linksrc;
 	HistoryDate = hIstoryDate;
 	this.favorite = favorite;
+}
+
+public String getExampleSentence() {
+	return exampleSentence;
+}
+
+public void setExampleSentence(String exampleSentence) {
+	this.exampleSentence = exampleSentence;
 }
 
 public String getLocation() {
