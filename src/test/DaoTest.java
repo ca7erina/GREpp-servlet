@@ -40,15 +40,16 @@ public class DaoTest {
 	public static void testWordDao(){
 		WordDao dao= new JdbcWordDao();
 			try {
-				List<Word> a=dao.findWordByPage(0, 1, 1);
-				System.out.println("1--:" +a);
+				List<Word> a=new ArrayList<Word>();
+//					a=dao.findWordByPage(0, 1, 1);
+//				System.out.println("1--:" +a);
 				a=dao.findAllWord();
 				System.out.println(a);
-				Word w=new Word();
-				w.setLinksrc("");
-				w.setMeaning("");
-				w.setSpell("test");
-				dao.AddWord(w);
+//				Word w=new Word();
+//				w.setLinksrc("");
+//				w.setMeaning("");
+//				w.setSpell("test");
+//				dao.AddWord(w);
 			} catch (Exception e) {
 				
 				e.printStackTrace();
@@ -57,10 +58,10 @@ public class DaoTest {
 	}
 	
 	public static void main(String[] args) {
-		//testArgumentDao();
-		System.out.println("start");
-		testWordDao();
-		System.out.println("end");
+//		testArgumentDao();
+//		System.out.println("start");
+//		testWordDao();
+//		System.out.println("end");
 
 	}
 
