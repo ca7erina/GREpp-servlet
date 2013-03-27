@@ -4,43 +4,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-<servlet>
-    <servlet-name>GeneralServlet</servlet-name>
-    <servlet-class>action.GeneralServlet</servlet-class>
-   <init-param>
-   <param-name>suffix</param-name>
-   <param-value>.action</param-value>
-  </init-param>
-</servlet>
+<filter>
+	<filter-name>Struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+	</filter-class>
+</filter>
 
-<servlet>
-    <servlet-name>ListByPage</servlet-name>
-    <servlet-class>action.ListByPage</servlet-class>
-   <init-param>
-   <param-name>suffix2</param-name>
-   <param-value>.list</param-value>
-  </init-param>
-</servlet>
-
-  <servlet>
-    <servlet-name>ListArgumentServletByPage</servlet-name>
-    <servlet-class>action.ListArgumentServletByPage</servlet-class>
-  </servlet>
-
-
-
-  <servlet-mapping>
-    <servlet-name>GeneralServlet</servlet-name>
-    <url-pattern>*.action</url-pattern>
-  </servlet-mapping>
-    <servlet-mapping>
-    <servlet-name>ListByPage</servlet-name>
-    <url-pattern>*.list</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ListArgumentServletByPage</servlet-name>
-    <url-pattern>/listArgumentByPage</url-pattern>
-  </servlet-mapping>
-
-
+<filter-mapping>
+	<filter-name>Struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+	
 </web-app>

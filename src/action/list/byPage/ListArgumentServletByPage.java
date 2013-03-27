@@ -1,4 +1,4 @@
-package action;
+package action.list.byPage;
 
 import java.io.IOException;
 import java.util.ArrayList;
